@@ -112,7 +112,7 @@ int main()
    };
    bool result = or_percep.DoTrain(and_train);
    if(result)
-       std::cout << "Oh yea!" << std::endl;
+       std::cout << "traind" << std::endl;
    else
-       std::cout << "fuck" <<std::endl;
+       std::cout << "not trained" <<std::endl;
 }

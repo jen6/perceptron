@@ -52,13 +52,8 @@ public:
 
         while(maxcount) {
             bool break_flag = true;
-                std::cout << "------round" << maxcount <<"----------" << std::endl;
             for(const auto &d : train_data) {
-                std::cout << "----------------" << std::endl;
                 bool result = Run(ExceptAnswer(d));
-                std::cout << weights[0] <<", " << weights[1] << ", " <<
-                    weights[2] << std::endl;
-                std::cout << d[0] <<", " << d[1] << " : " << result << std::endl;
                 if(result == d[SIZE-1]) 
                     continue;
 

@@ -3,9 +3,23 @@
 #include <bitset>
 #include <cstdlib>
 #include <vector>
+#include <ctime>
 
 const int kDefaultTrainMax = 2000;
 const float kWeightUpdate = 0.005f;
+
+float FloatRand() {
+    static bool flag = false;
+    if(!flag) {
+        std::srand(static_cast<unsigned>(std::time(0)));
+        flag = true;
+    }
+    float r = 
+        static_cast<float>(std::rand()) / static_cast<float>(RAND_MAX);
+    r = r/1.0f;
+    r -= 0.5f;
+    return r;
+}
 
 template<std::size_t SIZE>
 class Perceptron {
@@ -14,7 +28,9 @@ private:
     const int x0 = -1;
     float w0;
 public:
-    Perceptron() { }
+    Perceptron() { 
+         
+    }
     /*
      * bitset 0 ~ SIZE-2 are variables
      * bitset SIZE-1 is result
@@ -40,7 +56,7 @@ public:
                 int retsign = (d[SIZE-1] - result);
                 weights[0] += kWeightUpdate * x0 * retsign;
 
-                //w0-x0, w1-d0, w2-d1, .... , wn-w(n-1)
+                //w0-x0, w1-d0, w2-d1, .... , wn-d(n-1)
                 for(auto j = 1; j < SIZE-1; ++j) 
                     weights[j] += kWeightUpdate * d[j-1] * retsign;
             }

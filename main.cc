@@ -2,7 +2,7 @@
 #include "perceptron.cc"
 int main()
 {
-   Perceptron<3> or_percep;
+   Perceptron<2> or_percep;
    //answer x0 x1
    std::vector<std::bitset<3>> and_train = {
        std::bitset<3>("000"),
